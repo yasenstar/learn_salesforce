@@ -2,7 +2,11 @@
 
 Target: comfortably use the `IF()`, `AND()`, `NOT()` and `OR()` functions
 
+Test:
 
+Opportunity Validation Rule: `(Formula)	AND(NOT(IsClosed),CloseDate <= TODAY() -1)`
+
+Error Message:	Hey McFly, unless you are planning to go back in time, please update your close date
 
 # Use Numbers, Currency, and Percentages in Formulas
 
