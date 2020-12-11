@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="SF-Apex-HowWeRoll" id="id-8f32cd40257a4b0f876bae68831129cb" version="4.6.0">
+  <folder name="Strategy" id="id-c208a35d76e44d048f793a19857b5a41" type="strategy"/>
+  <folder name="Business" id="id-9abd3797aeb6462d8ad356c9195a30a1" type="business">
+    <element xsi:type="archimate:BusinessObject" name="Maintenance Request (Case)" id="id-24a4b8ec75e14c929800064765d7e2fd">
+      <documentation>Servide requests used to fix or maintain RVs, malfunctions, and routine maintenance.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Equipment (Product)" id="id-85ce38a014d842c3b34df62398d04a97">
+      <documentation>Items in the warehouse used to fix or maintain RVs. Repair parts have a flag indicating that they are for repairl</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Vehicle" id="id-3703a0d871c34ed2ad49d2952b4a602e">
+      <documentation>Vehicles in HowWeRoll's rental fleet.
+These records contain all stock parts that will eventually need replacerment or maintenance.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Work Part" id="id-463dc67612e1406fa1665b3213e2df73">
+      <documentation>Equipment used for a maintenance request.</documentation>
+    </element>
+  </folder>
+  <folder name="Application" id="id-eb9cb78d993c44c78731ae9adefb6998" type="application">
+    <folder name="Warehouse Changes" id="id-31945d27a4364b4cb96730aa82ee1188">
+      <element xsi:type="archimate:DataObject" name="cost" id="id-232db34c88144163b07dedbc955f4fc0"/>
+      <element xsi:type="archimate:DataObject" name="current inventory" id="id-ad0a928b44cb48a4ad4e6a8e3ff9e78b"/>
+      <element xsi:type="archimate:DataObject" name="lifespan" id="id-c7c6e42d3a314cbb82ebba49fea6850d"/>
+      <element xsi:type="archimate:DataObject" name="replacement part" id="id-453dac8ac5a747ec928d6ebd15035965"/>
+      <element xsi:type="archimate:DataObject" name="Maintenance Cycle" id="id-eb6e40aae478496fb129d45e45e0ca13"/>
+      <element xsi:type="archimate:DataObject" name="Warehouse SKU" id="id-b79c36244d844c95a9f046478c0ce01e"/>
+    </folder>
+    <element xsi:type="archimate:ApplicationComponent" name="Salesforce" id="id-01f7d549e15347b8b36adef097e9c56f"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Legacy Warehouse Inventory Sys" id="id-96e9ff85aae34ef2b6deb0d7cd0a8c08"/>
+  </folder>
+  <folder name="Technology &amp; Physical" id="id-279fe72527b54362b4c1dcaaa436fa37" type="technology"/>
+  <folder name="Motivation" id="id-6b9d4265feef4732aa2b1ba5c8c6127b" type="motivation">
+    <element xsi:type="archimate:Requirement" name="Automate Maintenance Requests" id="id-17f210a0a0c7451ba3119c1fbad6734a"/>
+    <element xsi:type="archimate:Requirement" name="Synchronize Inventory Management" id="id-d983af2abce74b89b396a1bc88922c50"/>
+  </folder>
+  <folder name="Implementation &amp; Migration" id="id-f2d75c0d32c34b92a53791ec46e5ea79" type="implementation_migration"/>
+  <folder name="Other" id="id-8af56c2076f041fbb6ce5cbc33cc8811" type="other"/>
+  <folder name="Relations" id="id-95f8b70e65954eb68eaac4e79768aa3a" type="relations">
+    <element xsi:type="archimate:SpecializationRelationship" id="id-cd4c447ca43c4ced894687a2f57ec08c" source="id-3703a0d871c34ed2ad49d2952b4a602e" target="id-24a4b8ec75e14c929800064765d7e2fd"/>
+    <element xsi:type="archimate:SpecializationRelationship" id="id-15515928937a44d5b32e3b4822520a1a" source="id-24a4b8ec75e14c929800064765d7e2fd" target="id-463dc67612e1406fa1665b3213e2df73"/>
+    <element xsi:type="archimate:SpecializationRelationship" id="id-5d9d17f49e5f4007831197da6e21e4bd" source="id-85ce38a014d842c3b34df62398d04a97" target="id-463dc67612e1406fa1665b3213e2df73"/>
+  </folder>
+  <folder name="Views" id="id-b9b58c5f5d154fd88413d0ae9c953439" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="Entity Diagram" id="id-6dcdde999ac34e65aa702be34000fd91">
+      <child xsi:type="archimate:DiagramObject" id="id-51d75fb2412149edacc4485c39e80bf0" archimateElement="id-85ce38a014d842c3b34df62398d04a97">
+        <bounds x="324" y="192" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-dc8843d5b6cc45fc80ce579f05451250" source="id-51d75fb2412149edacc4485c39e80bf0" target="id-499d928b4e9d4e16aca055a1737d10c9" archimateRelationship="id-5d9d17f49e5f4007831197da6e21e4bd"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-52ba83ec3ec242be8720683d7230767b" targetConnections="id-f3f66e067f174d7c9bbe478bd7cb3f06" archimateElement="id-24a4b8ec75e14c929800064765d7e2fd">
+        <bounds x="168" y="96" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-7bcad6aff47a4d1cbb815f70f2923601" source="id-52ba83ec3ec242be8720683d7230767b" target="id-499d928b4e9d4e16aca055a1737d10c9" archimateRelationship="id-15515928937a44d5b32e3b4822520a1a"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-3ff69121329d4a62baceed48f1b7692d" archimateElement="id-3703a0d871c34ed2ad49d2952b4a602e">
+        <bounds x="12" y="96" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-f3f66e067f174d7c9bbe478bd7cb3f06" source="id-3ff69121329d4a62baceed48f1b7692d" target="id-52ba83ec3ec242be8720683d7230767b" archimateRelationship="id-cd4c447ca43c4ced894687a2f57ec08c"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-499d928b4e9d4e16aca055a1737d10c9" targetConnections="id-7bcad6aff47a4d1cbb815f70f2923601 id-dc8843d5b6cc45fc80ce579f05451250" archimateElement="id-463dc67612e1406fa1665b3213e2df73">
+        <bounds x="324" y="96" width="120" height="55"/>
+      </child>
+    </element>
+  </folder>
+</archimate:model>
